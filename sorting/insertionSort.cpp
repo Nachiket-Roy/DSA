@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// insert one element to its right place
+// insert one element to its right place O(N ** 2)
 int main(){
     int n;
     cin >> n;
@@ -17,7 +17,6 @@ int main(){
             j--;
         }
         arr[j+1] = temp;
-           
     }
     for (auto it : arr) {  // may not work on some compiler use vector instead
     cout << it << " ";
