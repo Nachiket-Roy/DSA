@@ -24,7 +24,7 @@ int main(){
 }
 
 */
-// two pointers O(N)
+// two pointers O(N) & O(d)
 int f(int arr[], int n){
     int i = 0;
     int j = i + 1;
@@ -52,5 +52,4 @@ int main(){
     }
     
     f(arr, n);
-
 }
