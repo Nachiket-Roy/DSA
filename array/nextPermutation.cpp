@@ -3,7 +3,7 @@ using namespace std;
 
 // brute => recursion will do later O(N! * N) & O(N) 
 
-// brute -> use stl next_permutation
+// brute -> use stl next_permutation O(N)
 
 // optimal implementation of brute 
 #include <algorithm>
@@ -25,7 +25,8 @@ int main(){
         }
         swap(arr[i], arr[j]);
     }
-    sort(arr + i + 1, arr + n);
+    sort(arr + i + 1, arr + n); // O(k log k)
+    // reverse(arr + i + 1, arr + n); O(K)
     for(auto it : arr){
         cout << it << " ";
     }
