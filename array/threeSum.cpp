@@ -34,19 +34,34 @@ int main(){
 */
 
 /*
-// better 
+#include <unordered_set>
+// better O(n2 * log (unique triplets)) && O(N) + O(unique triplets)
 int main(){
     int n;
     cin >> n;
     vector<int> arr(n);
     copy_n(istream_iterator<int>(cin), n , arr.begin());
     
-    set<vector <int>> triplets;
-    for(int i = 0; i<n;i++){
-        int sum = 0;
-        for(int j=0;j<n;j++){
-
+   set<vector<int>> result;
+    for(int i = 0;i < n; i++){
+        if (i > 0 && arr[i] == arr[i - 1]) continue;
+        // Use a hash set to track the seen numbers in each iteration.
+        unordered_set<int> seen;
+        for(int j =i+1;j<n;j++){
+            int third = -(arr[i] + arr[j]);
+            if(seen.count(third)){
+                vector<int> triplets = {arr[i], arr[j], third};
+                sort(triplets.begin(), triplets.end());
+                result.insert(triplets); // inserting unique sorted vector triplets 
+            }
+            seen.insert(arr[j]);
         }
+    } 
+    for(auto it : result){ // const  auto& triplets : result
+        for(int val : it){ // int val : triplet
+            cout << val << " ";
+        }
+        cout << endl;
     }
 }
 */
